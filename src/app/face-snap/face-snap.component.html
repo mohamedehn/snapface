@@ -1,3 +1,4 @@
+<!-- Utilisation de la string interpolation dans le template afin d'afficher le contenu des variables dans le template -->
 <div class="face-snap-card">
     <h2>{{ faceSnap.title }}</h2>
     <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
@@ -6,6 +7,7 @@
     <p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}</p>
     <p>
         <button (click)="onSnap()">{{buttonText}}</button>
-        🤌 {{ faceSnap.snaps }}
+        <!--ngStyle ici permet d'appliquer un style dynamique en fonction du nombre de snaps, plus il y a de snaps et plus la couleur sera verte-->
+        <span [ngStyle]="{color:'rgb(0,'+faceSnap.snaps +',0)'}">🤌 {{ faceSnap.snaps }}</span> 
     </p>
 </div>

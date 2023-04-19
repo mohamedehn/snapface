@@ -13,7 +13,7 @@ export class FaceSnapComponent implements OnInit {
 
   buttonText!:string;
 
-  ngOnInit() {
+  ngOnInit() { 
     this.buttonText = 'Oh Snap!'
   }
 
