@@ -1,7 +1,10 @@
 <!-- Utilisation de la string interpolation dans le template afin d'afficher le contenu des variables dans le template -->
-<div class="face-snap-card">
-    <h2>{{ faceSnap.title }}</h2>
-    <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
+<!-- Ci-dessous utilisation de ngClass afin d'appliquer un style dynamique si la condition est rempli
+Ici la condition si une personne à snap et que le bouton qui s'affiche est unSnap, alors la class de style s'applique -->
+<div class="face-snap-card" [ngClass]="{snapped : buttonText === 'Oops, unSnap!'}">
+    <!-- utilisation d'un pipe sur le titre pour l'afficher en majuscule sans toucher les données -->
+    <h2>{{ faceSnap.title | uppercase}}</h2> 
+    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'longDate'}}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>{{ faceSnap.description }}</p>
     <p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}</p>
