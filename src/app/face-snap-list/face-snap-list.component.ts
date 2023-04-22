@@ -17,7 +17,8 @@ export class FaceSnapListComponent implements OnInit{
   constructor(private faceSnapsService : FaceSnapsService){}
 
   // avec ngOnInit permet de stocker le code à exécuter lors de l'initialisation du composant.
+  // on appellera la méthode getAllFaceSnaps crée dans le face-snaps.service
   ngOnInit() : void{
-    this.faceSnaps = this.faceSnapsService.faceSnaps
+    this.faceSnaps = this.faceSnapsService.getAllFaceSnaps()
   }
 }
