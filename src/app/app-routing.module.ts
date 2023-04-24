@@ -4,10 +4,12 @@ import { NgModule } from "@angular/core";
 import {RouterModule, Routes} from "@angular/router"
 import { FaceSnapListComponent } from "./face-snap-list/face-snap-list.component";
 import { LandingPageComponent } from "./landing-page/landing-page.component";
+import { SingleFaceSnapComponent } from "./single-face-snap/single-face-snap.component";
 
 // const routes contiendra un tableau de toutes les routes de l'application. Path permettra de définir le chemin.
 // ce tableau va lier les routes de votre application (les différentes URL) aux components correspondants.
 const routes : Routes = [
+    {path : 'facesnaps/:id', component : SingleFaceSnapComponent}, // ici on applique un paramètre dynamique via l'id pour afficher 1 facesnap
     {path : 'facesnaps', component : FaceSnapListComponent}, //ici l'url des facesnaps
     {path: '', component : LandingPageComponent} // ici la string vide permet définir la landing-page sur l'url de base
 ];

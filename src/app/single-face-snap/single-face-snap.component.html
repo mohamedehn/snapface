@@ -4,6 +4,14 @@ Ici la condition si une personne à snap et que le bouton qui s'affiche est unSn
 <div class="face-snap-card" [ngClass]="{snapped : buttonText === 'Oops, unSnap!'}">
     <!-- utilisation d'un pipe sur le titre pour l'afficher en majuscule sans toucher les données -->
     <h2>{{ faceSnap.title | uppercase}}</h2> 
+    <a routerLink="/facesnaps">Back</a>
+    <p>Mis en ligne le {{ faceSnap.createdDate | date: 'longDate'}}</p>
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>{{ faceSnap.description }}</p>
-    <button (click)="onViewFaceSnap()">VIEW</button>
+    <p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}</p>
+    <p>
+        <button (click)="onSnap()">{{buttonText}}</button>
+        <!--ngStyle ici permet d'appliquer un style dynamique en fonction du nombre de snaps, plus il y a de snaps et plus la couleur sera verte-->
+        <span [ngStyle]="{color:'rgb(0,'+faceSnap.snaps +',0)'}">🤌 {{ faceSnap.snaps }}</span> 
+    </p>
 </div>
