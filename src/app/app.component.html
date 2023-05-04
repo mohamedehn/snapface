@@ -1,2 +1,3 @@
 <app-header></app-header>
-<router-outlet></router-outlet> <!--Permet d'afficher le component spécifié dans le router-->
+<router-outlet></router-outlet> <!-- Permet d'afficher le component spécifié dans le router -->
+<h1>{{interval$ | async}}</h1> <!-- le pipe async ne formate pas des données : il souscrit à un Observable et insère les émissions dans le DOM-->
